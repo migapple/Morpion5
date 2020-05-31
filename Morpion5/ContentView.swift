@@ -62,6 +62,7 @@ struct ContentView: View {
                     self.activerEtat(etat: .tourJoueur)
                     
                 }) {
+                    
                     BoutonPerso(text: "Joueur Commence", couleur: .green)
                 }
                 
@@ -76,21 +77,21 @@ struct ContentView: View {
         }
     }
     
-    struct BoutonPerso: View {
-        var text: String
-        var couleur: Color
-        
-        var body: some View {
-            Text(text)
-            .font(.caption)
-            .bold()
-            .foregroundColor(.white)
-            .padding()
-            .background(couleur)
-            .cornerRadius(10)
-            .padding()
-        }
-    }
+//    struct BoutonPerso: View {
+//        var text: String
+//        var couleur: Color
+//
+//        var body: some View {
+//            Text(text)
+//            .font(.caption)
+//            .bold()
+//            .foregroundColor(.white)
+//            .padding()
+//            .background(couleur)
+//            .cornerRadius(10)
+//            .padding()
+//        }
+//    }
     
     func resetgrilleJeu() {
         self.damier.nouvelleGrille(nbLignes: 3, nbColonnes: 3)
@@ -106,12 +107,12 @@ struct ContentView: View {
             interfaceActive = true
             couleurFond = Color.white
             boutonIAVisible = true
-            
+
         case .tourIA:
             interfaceActive = false
             couleurFond = Color.gray
             boutonIAVisible = false
-            
+
             // Increment Compteur Ordi
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                 self.compteurIA += 1
@@ -138,7 +139,7 @@ struct ContentView: View {
         case .finDujeu:
             interfaceActive = false
         }
-        
+
         etatJeu = etat
     }
 }
