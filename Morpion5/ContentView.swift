@@ -58,40 +58,44 @@ struct ContentView: View {
             
             HStack {
                 Button(action:{
-                    self.damier.nouvelleGrille(nbLignes: 3, nbColonnes: 3)
+                    self.resetgrilleJeu()
                     self.activerEtat(etat: .tourJoueur)
-                    self.compteurIA = 0
-                    self.compteurJoueur = 0
                     
                 }) {
-                    Text("Joueur Commence")
-                        .font(.caption)
-                        .bold()
-                        .foregroundColor(.white)
-                        .padding()
+                    BoutonPerso(text: "Joueur Commence", couleur: .green)
                 }
-                .background(Color.green)
-                .cornerRadius(10)
-                .padding()
                 
                 Button(action:{
-                    self.damier.nouvelleGrille(nbLignes: 3, nbColonnes: 3)
+                    self.resetgrilleJeu()
                     self.activerEtat(etat: .tourIA)
-                    self.compteurIA = 0
-                    self.compteurJoueur = 0
+                    
                 }) {
-                    Text("IA Commence")
-                        .font(.caption)
-                        
-                        .bold()
-                        .foregroundColor(.white)
-                        .padding()
+                    BoutonPerso(text: "IA Commence", couleur: .red)
                 }
-                .background(Color.red)
-                .cornerRadius(10)
-                .padding()
             }
         }
+    }
+    
+    struct BoutonPerso: View {
+        var text: String
+        var couleur: Color
+        
+        var body: some View {
+            Text(text)
+            .font(.caption)
+            .bold()
+            .foregroundColor(.white)
+            .padding()
+            .background(couleur)
+            .cornerRadius(10)
+            .padding()
+        }
+    }
+    
+    func resetgrilleJeu() {
+        self.damier.nouvelleGrille(nbLignes: 3, nbColonnes: 3)
+        self.compteurIA = 0
+        self.compteurJoueur = 0
     }
     
     func activerEtat(etat: EtatJeu) {
