@@ -19,6 +19,8 @@ struct DescriptionCase: Identifiable {
     var index = IndexCase()
 }
 
+/// Description
+/// Création du tableau en fonction du tableau listeCases
 class Damier: ObservableObject {
     @Published var listeCases: [[DescriptionCase]]
     

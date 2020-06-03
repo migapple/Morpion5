@@ -20,6 +20,8 @@ enum EtatJeu: String {
 }
 
 struct ContentView: View {
+    @State var machine = MachineEtats()
+    
     @ObservedObject var damier = Damier(nbLignes: 3, nbColonnes: 3)
     
     @State var etatJeu = EtatJeu.indetermine
@@ -33,7 +35,7 @@ struct ContentView: View {
     var body: some View {
         VStack {
             
-            Text(etatJeu.rawValue)
+            Text(machine.etatCourant.rawValue)
                 .font(.system(size: 20))
                 .bold()
             
@@ -48,9 +50,9 @@ struct ContentView: View {
                        action: {
                             self.compteurJoueur += 1
                         if self.compteurJoueur == 5 {
-                            self.activerEtat(etat: .finDujeu)
+                            self.machine.activer(etat: .finDujeu)
                         } else {
-                            self.activerEtat(etat: .tourIA)
+                            self.machine.activer(etat: .tourIA)
                         }
             })
             
@@ -59,7 +61,7 @@ struct ContentView: View {
             HStack {
                 Button(action:{
                     self.resetgrilleJeu()
-                    self.activerEtat(etat: .tourJoueur)
+                    self.machine.activer(etat: .tourJoueur)
                     
                 }) {
                     
@@ -68,7 +70,7 @@ struct ContentView: View {
                 
                 Button(action:{
                     self.resetgrilleJeu()
-                    self.activerEtat(etat: .tourIA)
+                    self.machine.activer(etat: .tourIA)
                     
                 }) {
                     BoutonPerso(text: "IA Commence", couleur: .red)
@@ -77,70 +79,10 @@ struct ContentView: View {
         }
     }
     
-//    struct BoutonPerso: View {
-//        var text: String
-//        var couleur: Color
-//
-//        var body: some View {
-//            Text(text)
-//            .font(.caption)
-//            .bold()
-//            .foregroundColor(.white)
-//            .padding()
-//            .background(couleur)
-//            .cornerRadius(10)
-//            .padding()
-//        }
-//    }
-    
     func resetgrilleJeu() {
         self.damier.nouvelleGrille(nbLignes: 3, nbColonnes: 3)
         self.compteurIA = 0
         self.compteurJoueur = 0
-    }
-    
-    func activerEtat(etat: EtatJeu) {
-        switch etat {
-        case .indetermine:
-            break
-        case .tourJoueur:
-            interfaceActive = true
-            couleurFond = Color.white
-            boutonIAVisible = true
-
-        case .tourIA:
-            interfaceActive = false
-            couleurFond = Color.gray
-            boutonIAVisible = false
-
-            // Increment Compteur Ordi
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                self.compteurIA += 1
-                self.damier.ordiCase()
-//                if self.compteurIA == 5 || self.compteurJoueur == 5 {
-                    if self.compteurIA == 5  {
-                    self.activerEtat(etat: .finDujeu)
-                } else {
-                    self.activerEtat(etat: .tourJoueur)
-                }
-            }
-        case .joueurGagnant:
-            interfaceActive = false
-            boutonIAVisible = false
-        case .IAGagnant:
-            interfaceActive = false
-            boutonIAVisible = false
-        case .reset:
-            interfaceActive = false
-            compteurIA = 0
-            compteurJoueur = 0
-        case .pasDeGagnant:
-            interfaceActive = false
-        case .finDujeu:
-            interfaceActive = false
-        }
-
-        etatJeu = etat
     }
 }
 

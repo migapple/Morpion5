@@ -8,6 +8,10 @@
 
 import SwiftUI
 
+/// Description
+/// liste: Liste des cases à dessiner en fonction des lignes et des colonnes
+/// damier: Objet devant recevoir les évènements utilisateur: quand le joueur sélectionne une case
+/// action: Action de l'automate
 struct GrilleView: View {
     @Binding var actif: Bool
     var liste: [[DescriptionCase]]
@@ -34,8 +38,9 @@ struct GrilleView: View {
     }
 }
 
-struct GrilleView_Previews: PreviewProvider {
-    static var previews: some View {
-        /*@START_MENU_TOKEN@*/Text("Hello, World!")/*@END_MENU_TOKEN@*/
-    }
-}
+//struct GrilleView_Previews: PreviewProvider {
+//    
+//    static var previews: some View {
+//        GrilleView(actif: <#T##Binding<Bool>#>, liste: <#T##[[DescriptionCase]]#>, damier: <#T##Damier#>, action: <#T##() -> Void#>)
+//    }
+//}

@@ -8,6 +8,8 @@
 
 import SwiftUI
 
+/// Description
+/// Affichage d'une case du damier
 struct CaseView: View {
     var description: DescriptionCase
     
@@ -18,8 +20,8 @@ struct CaseView: View {
     }
 }
 
-//struct CaseView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        CaseView(description: DescriptionCase(couleur: Color.gray, index: IndexCase(ligne: 0, colonne: 0)))
-//    }
-//}
+struct CaseView_Previews: PreviewProvider {
+    static var previews: some View {
+        CaseView(description: DescriptionCase(couleur: Color.gray, index: IndexCase(ligne: 0, colonne: 0)))
+    }
+}

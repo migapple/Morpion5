@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		535738BB2483A90800F39E8C /* BoutonPerso.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535738BA2483A90800F39E8C /* BoutonPerso.swift */; };
+		535738BD2483A9EE00F39E8C /* Automate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535738BC2483A9EE00F39E8C /* Automate.swift */; };
 		53BAB046247FFD5900E02083 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BAB045247FFD5900E02083 /* AppDelegate.swift */; };
 		53BAB048247FFD5900E02083 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BAB047247FFD5900E02083 /* SceneDelegate.swift */; };
 		53BAB04B247FFD5900E02083 /* Morpion5.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 53BAB049247FFD5900E02083 /* Morpion5.xcdatamodeld */; };
@@ -22,6 +23,7 @@
 
 /* Begin PBXFileReference section */
 		535738BA2483A90800F39E8C /* BoutonPerso.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoutonPerso.swift; sourceTree = "<group>"; };
+		535738BC2483A9EE00F39E8C /* Automate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Automate.swift; sourceTree = "<group>"; };
 		53BAB042247FFD5900E02083 /* Morpion5.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Morpion5.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		53BAB045247FFD5900E02083 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		53BAB047247FFD5900E02083 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -73,6 +75,7 @@
 				53BAB05E247FFE1D00E02083 /* GrilleView.swift */,
 				53BAB060247FFE3800E02083 /* CaseView.swift */,
 				535738BA2483A90800F39E8C /* BoutonPerso.swift */,
+				535738BC2483A9EE00F39E8C /* Automate.swift */,
 				53BAB04E247FFD5A00E02083 /* Assets.xcassets */,
 				53BAB053247FFD5A00E02083 /* LaunchScreen.storyboard */,
 				53BAB056247FFD5A00E02083 /* Info.plist */,
@@ -168,6 +171,7 @@
 				535738BB2483A90800F39E8C /* BoutonPerso.swift in Sources */,
 				53BAB061247FFE3800E02083 /* CaseView.swift in Sources */,
 				53BAB04B247FFD5900E02083 /* Morpion5.xcdatamodeld in Sources */,
+				535738BD2483A9EE00F39E8C /* Automate.swift in Sources */,
 				53BAB05D247FFDAD00E02083 /* Damier.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
