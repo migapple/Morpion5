@@ -27,7 +27,7 @@ struct GrilleView: View {
                             .onTapGesture {
                                 if self.actif {
                                     // Joueur joue
-                                    self.damier.toucheCases(index: self.liste[ligne][colonne].index)
+                                    damier.toucheCases(index: liste[ligne][colonne].index)
                                     self.action()
                                 }
                         }

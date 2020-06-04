@@ -20,10 +20,10 @@ enum EtatJeu: String {
 }
 
 struct ContentView: View {
-    @State var machine = MachineEtats()
+    @Binding var machine : MachineEtats
     
-    @ObservedObject var damier = Damier(nbLignes: 3, nbColonnes: 3)
-    
+//    @ObservedObject var damier = Damier(nbLignes: 3, nbColonnes: 3)
+    @Binding var damier: Damier
     @State var etatJeu = EtatJeu.indetermine
     @State var interfaceActive = true
     @State var compteurJoueur = 0
@@ -46,7 +46,7 @@ struct ContentView: View {
                 Text("Joueur: \(compteurJoueur)")
             }
             
-            GrilleView(actif: $interfaceActive, liste: damier.listeCases, damier: damier,
+            GrilleView(actif: $interfaceActive, liste: damier.cases, damier: damier,
                        action: {
                             self.compteurJoueur += 1
                         if self.compteurJoueur == 5 {
@@ -87,7 +87,10 @@ struct ContentView: View {
 }
 
 struct ContentView_Previews: PreviewProvider {
+    @Binding var machine : MachineEtats
+    @Binding var damier: Damier
+    
     static var previews: some View {
-        ContentView()
+        ContentView(machine: $machine, damier: $damier)
     }
 }

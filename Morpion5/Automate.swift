@@ -22,13 +22,12 @@ enum EtatMachine: String {
 struct MachineEtats {
     
     var etatCourant = EtatMachine.indetermine
-    @ObservedObject var damier = Damier(nbLignes: 3, nbColonnes: 3)
-//    var damier = Damier(nbLignes: 3, nbColonnes: 3)
+    @Binding var damier: Damier
     
     // Activation de l'état de début
-    init() {
-        activer(etat: .indetermine)
-    }
+//    init() {
+//        activer(etat: .indetermine)
+//    }
     
     mutating func activer(etat: EtatMachine) {
         switch etat {

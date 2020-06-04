@@ -21,16 +21,16 @@ struct DescriptionCase: Identifiable {
 
 /// Description
 /// Création du tableau en fonction du tableau listeCases
-class Damier: ObservableObject {
-    @Published var listeCases: [[DescriptionCase]]
+struct Damier {
+    var cases : [[DescriptionCase]]
     
     init(nbLignes: Int, nbColonnes: Int) {
-        listeCases = Damier.creer(nbLignes: nbLignes, nbColonnes: nbColonnes)
+        cases = Damier.creer(nbLignes: nbLignes, nbColonnes: nbColonnes)
     }
     
-    // Creation du tableau en fonction du nombre de lignes et de colonnes
-    private static func creer(nbLignes: Int, nbColonnes: Int) -> [[DescriptionCase]] {
+    private static func creer(nbLignes: Int, nbColonnes: Int) -> [[DescriptionCase]]  {
         var tableau = [[DescriptionCase]]()
+        
         for ligne in 0..<nbLignes {
             var ligneTableau = [DescriptionCase]()
             for colonne in 0..<nbColonnes {
@@ -43,29 +43,29 @@ class Damier: ObservableObject {
         return tableau
     }
     
-    // Creation nouvelle grille vierge
-    func nouvelleGrille(nbLignes: Int, nbColonnes: Int) {
-        listeCases = Damier.creer(nbLignes: nbLignes, nbColonnes: nbColonnes)
+    // Création nouvelle grille vierge
+    mutating func nouvelleGrille(nbLignes:Int, nbColonnes:Int) {
+        cases = Damier.creer(nbLignes: nbLignes, nbColonnes: nbColonnes)
     }
     
     // Action
-    func toucheCases(index:IndexCase) {
+    mutating func toucheCases(index:IndexCase) {
         let ligne = index.ligne
         let colonne = index.colonne
-        let description = listeCases[ligne][colonne]
-        
+        let description = cases[ligne][colonne]
+      
         if description.couleur == Color.gray {
-            listeCases[ligne][colonne].couleur = Color.green
+            cases[ligne][colonne].couleur = Color.green
         }
     }
     
-    func ordiCase() {
+    mutating func ordiCase() {
         while true {
             let ligne = Int.random(in: 0..<3)
             let colonne = Int.random(in: 0..<3)
             
-            if listeCases[ligne][colonne].couleur == Color.gray {
-                listeCases[ligne][colonne].couleur = Color.red
+            if cases[ligne][colonne].couleur == Color.gray {
+                cases[ligne][colonne].couleur = Color.red
                 break
             }
         }
